@@ -45,12 +45,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginProcessingUrl("/authenticate") // フォーム認証処理のパス
 				.usernameParameter("userName") // ユーザ名のリクエストパラメータ名
 				.passwordParameter("password") // パスワードのリクエストパラメータ名
-				.defaultSuccessUrl("/home") // 認証成功時に遷移するデフォルトのパス
+				.defaultSuccessUrl("/main") // 認証成功時に遷移するデフォルトのパス
 				.failureUrl("/loginForm?error=true"); // 認証失敗時に遷移するパス
 
 		// ログアウト設定
 		http.logout().logoutSuccessUrl("/loginForm") // ログアウト成功時に遷移するパス
 				.permitAll(); // 全ユーザに対して許可
+		
+		}
 	}
-
-}
