@@ -38,21 +38,21 @@ public class CalendarService {
             	//currentDate.getMonthValue()が当月であレバ
                 if (currentDate.getMonthValue() == month) {
                 	weekRow.add(currentDate);
-                }//else {//翌月に入った日付の場合は何もしない
-//                	weekRow.add(null); // カレンダーの日付がないとこ
-  //              }
+                }//else {//翌月に入った日付の場合はnullを追加
+ //               	weekRow.add(null); // カレンダーの日付がないとこ
+ //               }
+
                 currentDate = currentDate.plusDays(1);//5. 1日ずつ増やしながらLocalDateを求める
             }
-            // 6. 完成した週のリストを2次元リストへ追加する
             matrix.add(weekRow);
+            // 6. 完成した週のリストを2次元リストへ追加する
             
             // ループ終了条件のチェック
             // 今月ジャないし、月曜だったら
-            //if (currentDate.getMonthValue() != month && currentDate.getDayOfWeek() == DayOfWeek.MONDAY) {
-//              continueLoop = false;
-//            }
+            if (currentDate.getMonthValue() != month && currentDate.getDayOfWeek() == DayOfWeek.MONDAY) {
+                break;
+            }
         }
         return matrix;
     }
 }
-       
